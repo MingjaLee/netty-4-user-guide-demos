@@ -57,6 +57,11 @@ public class DiscardServer {
         }
     }
 
+    /**
+     * client测试命令：telnet localhost 8080
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         int port;
         if (args.length > 0) {

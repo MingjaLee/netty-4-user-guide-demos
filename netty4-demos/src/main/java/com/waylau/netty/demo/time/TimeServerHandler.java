@@ -28,6 +28,7 @@ public class TimeServerHandler extends ChannelInboundHandlerAdapter {
         	// 操作完成，关闭管道
         	@Override
             public void operationComplete(ChannelFuture future) {
+                assert f == future;
                 ctx.close();
             }
         });

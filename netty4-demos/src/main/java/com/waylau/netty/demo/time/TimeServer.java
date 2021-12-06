@@ -41,7 +41,7 @@ public class TimeServer {
 
             // 绑定端口，开始接收进来的连接
             ChannelFuture f = b.bind(port).sync(); // (7)
-
+            System.out.println("TimeServer已启动，端口：" + port);
             // 等待服务器  socket 关闭 。
             // 在这个例子中，这不会发生，但你可以优雅地关闭你的服务器。
             f.channel().closeFuture().sync();
@@ -51,12 +51,18 @@ public class TimeServer {
         }
     }
 
+    /**
+     * run the server;
+     * client using command: rdate -p 127.0.0.1
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         int port;
         if (args.length > 0) {
             port = Integer.parseInt(args[0]);
         } else {
-            port = 8080;
+            port = 37;
         }
         new TimeServer(port).run();
     }
